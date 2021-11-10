@@ -11,8 +11,8 @@ resource "aws_instance" "web" {
     network_interface_id = aws_network_interface.network-interface-1.id
   }
   tags = {
-    Name         = "Andaç"
-    "created_by" = "Andaç"
+    Name         = "Terraformcuk"
+    "created_by" = "Terraformcuk"
   }
   user_data = <<-EOF
           #!/bin/bash
