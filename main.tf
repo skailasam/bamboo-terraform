@@ -1,11 +1,25 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.27"
+    }
+  }
+
+  required_version = ">= 0.14.9"
+}
+
 provider "aws" {
-  region     = "eu-west-1"
   profile = "terraform"
+  region  = "eu-west-1"
 }
 
 resource "aws_instance" "BAMBOO" {
   ami           = "ami-0ed961fa828560210" 
   instance_type = "t2.micro"
+  tags = {
+    "Name" = "BAMBOO"
+  }
 }
 # resource "aws_instance" "web" {
 #   ami               = "ami-02e136e904f3da870"
