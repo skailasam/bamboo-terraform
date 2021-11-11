@@ -1,26 +1,26 @@
 terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.27"
-    }
+  backend "s3" {
+    bucket         = "tfstate-test123"
+    key            = "tf_key"
+    region         = "eu-west-1"
+    encrypt        = true
+    dynamodb_table = "dynamo_for_tf_lock"
   }
-
-  required_version = ">= 0.14.9"
 }
 
 provider "aws" {
-  profile = "terraform"
+  profile = "default"
   region  = "eu-west-1"
 }
 
 resource "aws_instance" "BAMBOO" {
-  ami           = "ami-0ed961fa828560210" 
+  ami           = "ami-0ed961fa828560210"
   instance_type = "t2.micro"
   tags = {
     "Name" = "BAMBOO"
   }
 }
+
 # resource "aws_instance" "web" {
 #   ami               = "ami-02e136e904f3da870"
 #   instance_type     = "t2.micro"
