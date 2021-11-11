@@ -3,8 +3,8 @@ terraform {
     bucket         = "tfstate-test123"
     key            = "terraform.tfstate"
     region         = "eu-west-1"
-    # encrypt        = false
-    # dynamodb_table = "dynamo_for_tf_lock"
+    encrypt        = true
+    dynamodb_table = "dynamo_for_tf_lock"
   }
 }
 
@@ -13,11 +13,11 @@ provider "aws" {
   region  = "eu-west-1"
 }
 
-resource "aws_instance" "BAMBOO-2" {
+resource "aws_instance" "Terraformcuk" {
   ami           = "ami-0ed961fa828560210"
   instance_type = "t2.micro"
   tags = {
-    "Name" = "BAMBOO-2"
+    "Name" = "Terraformcuk"
   }
 }
 
