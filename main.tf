@@ -13,11 +13,11 @@ provider "aws" {
   region  = "eu-west-1"
 }
 
-resource "aws_instance" "BAMBOO" {
+resource "aws_instance" "BAMBOO-2" {
   ami           = "ami-0ed961fa828560210"
   instance_type = "t2.micro"
   tags = {
-    "Name" = "BAMBOO"
+    "Name" = "BAMBOO-2"
   }
 }
 
