@@ -3,8 +3,8 @@ terraform {
     bucket         = "tfstate-test123"
     key            = "terraform.tfstate"
     region         = "eu-west-1"
-    encrypt        = true
-    dynamodb_table = "dynamo_for_tf_lock"
+    # encrypt        = false
+    # dynamodb_table = "dynamo_for_tf_lock"
   }
 }
 
